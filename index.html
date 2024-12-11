@@ -112,6 +112,10 @@ return 'Scott 2020 ' + margin20 + '%<br>' + 'Scott 2024 ' + margin24 + '%<br>' ;
  	 	return '';
 		} 
 
+		if (scott20 == 0) {
+ 	 	return 'Precinct was not<br>in District 1<br>in 2020</center>';
+		} 
+
 		if (pctRep > pctDem) {
  	 	return '<span style="color: blue;"><center><b>Gain of + ' + (pctRep - pctDem).toFixed(2) + '%</b></center></span>';
 		} 
