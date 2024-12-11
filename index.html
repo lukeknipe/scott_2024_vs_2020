@@ -75,7 +75,7 @@
 		this._div.innerHTML = (props ?
 			'<h1>Precinct<br>' + props.PRECINCT + '</h1>'
 			+ '<h2><center>' + trump20(((props.SCOTT_20 / (props.BALLOTS_20))*100).toFixed(2), ((props.SCOTT_24 / (props.BALLOTS_24))*100).toFixed(2), (props.BALLOTS_20), (props.SCOTT_20))
-			+ '<h2><center>' + leanCalc((props.BALLOTS_20), ((props.SCOTT_24 / (props.BALLOTS_24))*100).toFixed(2), ((props.SCOTT_20 / (props.BALLOTS_20))*100).toFixed(2)) + '</center></h2>'
+			+ '<h2><center>' + leanCalc((props.BALLOTS_20), ((props.SCOTT_24 / (props.BALLOTS_24))*100).toFixed(2), ((props.SCOTT_20 / (props.BALLOTS_20))*100).toFixed(2), (props.SCOTT_20)) + '</center></h2>'
 			+ '<h3><br></center>2020<hr></h3>'
 			+ '<h4>' + props.SCOTT_20 + ' votes for Rex Scott</h4>'
 			+ '<h4><br>' + props.SPAIN_20 + ' votes for Steve Spain</h4>'
@@ -97,6 +97,7 @@ function trump20(margin20, margin24, ballots20, scott20) {
 		if (ballots20 == 0) {
  	 	return 'Precinct did not<br>exist in 2020</center>';
 		} 
+
 		if (scott20 == 0) {
  	 	return 'Precinct was not<br>in District 1<br>in 2020</center>';
 		} 
@@ -106,14 +107,14 @@ return 'Scott 2020 ' + margin20 + '%<br>' + 'Scott 2024 ' + margin24 + '%<br>' ;
 }
 }
 
-	function leanCalc(ballots20, pctRep, pctDem) {
+	function leanCalc(ballots20, pctRep, pctDem, scott20) {
 
 		if (ballots20 == 0) {
  	 	return '';
 		} 
 
 		if (scott20 == 0) {
- 	 	return 'Precinct was not<br>in District 1<br>in 2020</center>';
+ 	 	return '';
 		} 
 
 		if (pctRep > pctDem) {
